@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+body {
+  @apply bg-ink font-sans text-zinc-300 antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: rgba(157, 184, 255, 0.3); color: #fff; }
+
+:focus-visible { outline: 2px solid #9db8ff; outline-offset: 3px; border-radius: 6px; }
+
+@layer components {
+  .page { @apply mx-auto w-full max-w-page px-5 sm:px-8; }
+  .section-pad { @apply py-24 sm:py-32; }
+  .surface { @apply rounded-2xl border border-white/10 bg-ink-800/70; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-colors duration-200; }
+  .btn-primary { @apply btn bg-accent text-ink hover:bg-accent-soft; }
+  .btn-ghost { @apply btn border border-white/20 text-white hover:border-accent hover:text-accent; }
+  .chip { @apply inline-flex items-center rounded-full border border-white/10 px-3 py-1 text-xs text-zinc-300; }
+}
